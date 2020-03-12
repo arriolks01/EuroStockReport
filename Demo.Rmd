@@ -1,0 +1,37 @@
+---
+title: 'My first Markdown demo: European stock Indices between 1991-1998 '
+author: "Kathy Arriola"
+date: "3/11/2020"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+This is my first Markdown document.
+
+
+```{r}
+library(datasets)
+data(EuStockMarkets)
+summary(EuStockMarkets)
+```
+First step is to download the data. The data I will be using the data set already available in RStudio.The data is the daily closing prices of major European stock Indices between 1991-1998. The main objective of this Markdown demo is to use this as a self-taught demonstration. I will also use this data further explore the trends of the stock market throughout history.
+
+
+```{r}
+plot(EuStockMarkets,main="European Stock Market from 1991-1999")
+
+```
+
+Here is some general exploritory analysis. I started with plot of the data and showing the trends between the stock market. Ther breakdown is based on the daily closing prices. These data points excluded except for weekends and holiday. The four European stock exchanges: the DAX (Germany), the SMI (Switzerland), the CAC (France), and the FTSE (UK).
+
+```{r}
+ts.plot(EuStockMarkets, col = 1:4, xlab = "Year", ylab = "Prices in Euro", main = "European Stock Indices")
+legend("topleft", colnames(EuStockMarkets), lty = 1, col = 1:4, bty = "n")
+
+```
+
+The chart above highlights the prices of each European stock market. The color Germany is represented in black, Switzerland in red, France in green and UK in blue. There is clear an exponential growth from 1991. It appears Switzerland had the most growth within that recorded period of time. 
+
+
